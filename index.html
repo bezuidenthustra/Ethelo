@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-type" content="text/html;charset=UTF-8" /><title>New Sales Lead</title>
+<script type="text/javascript" src="https://secure.workbooks.com/javascripts/jquery.js"></script>
+  <script type="text/javascript" src="https://secure.workbooks.com/javascripts/jquery_validate.js"></script>
+  <script>
+  $(document).ready(function(){
+    $("#wb_form").validate();
+    jQuery.validator.addMethod("time", function(value, element) { 
+  return this.optional(element) || /^[0-2][0-9]:[0-9][0-9]$/.test(value); 
+}, "Please specify time as HH:MM using the 24 hour clock");
+  });
+  </script>
+  </head><body>
+                  <div id="page"><h1>New Sales Lead</h1>
+				  <p>Required fields are marked with an asterisk (*).</p>
+<form id='wb_form' class='cntctfrm_contact_form' method='POST' action='https://secure.workbooks.com/crm/web_leads'>
+<input type ='hidden' name='web_key' value='6893ac6b35a26d392a4a3acdec749885ac81c4e7' />
+<input type ='hidden' name='success_url' value='/success.html' />
+<input type ='hidden' name='failure_url' value='/failure.html' />
+<label for="person_lead_party[name]">Name (*)</label><br />
+<input name="person_lead_party[name]" size="40" class='required' /><br />
+<label for="org_lead_party[main_location][email]">Email (*)</label><br />
+<input name="org_lead_party[main_location][email]" size="40" class='required' /><br />
+<label for="org_lead_party[name]">Organisation / Company Name (*)</label><br />
+<input name="org_lead_party[name]" size="40" class='required' /><br />
+<label for="person_lead_party[person_job_title]">Job Title</label><br />
+<input name="person_lead_party[person_job_title]" size="40" /><br />
+<input type='submit' /></form>
+</div>
+</body>
+</html>
